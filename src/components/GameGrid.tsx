@@ -1,4 +1,4 @@
-import { List, ListItem, SimpleGrid, Spinner, Text } from '@chakra-ui/react'
+import { Flex, List, ListItem, SimpleGrid, Spinner, Text } from '@chakra-ui/react'
 import useGames from '../hooks/useGames'
 import GameCard from './GameCard'
 
@@ -19,7 +19,9 @@ const GameGrid = () => {
         spacing={10}
         p='.5rem'>
         {games.map((game) => (
-          <GameCard key={game.id} game={game} />
+          <Flex key={game.id} align='center' justify='center'>
+            <GameCard key={game.id} game={game} />
+          </Flex>
         ))}
       </SimpleGrid>
     </>

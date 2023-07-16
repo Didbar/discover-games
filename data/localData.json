@@ -29,7 +29,7 @@
         "dropped": 1030,
         "playing": 700
       },
-      "metacritic": 92,
+      "metacritic": 22,
       "playtime": 73,
       "suggestions_count": 421,
       "updated": "2023-07-16T14:26:45",
@@ -1334,7 +1334,10 @@
           "requirements_en": {
             "minimum": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong>Windows XP / Windows Vista / Windows 7<br>\t</li><li><strong>Processor:</strong>1.8 GHz Processor<br>\t</li><li><strong>Memory:</strong>512 MB RAM<br>\t</li><li><strong>Graphics:</strong>3D graphics card compatible with DirectX 9<br>\t</li><li><strong>DirectX®:</strong>9.0<br>\t</li><li><strong>Hard Drive:</strong>2 GB HD space</li></ul>"
           },
-          "requirements_ru": { "minimum": "i486-100, 8 Мб", "recommended": "Pentium 166, 16 Мб" }
+          "requirements_ru": {
+            "minimum": "i486-100, 8 Мб",
+            "recommended": "Pentium 166, 16 Мб"
+          }
         },
         {
           "platform": {
@@ -7709,7 +7712,10 @@
             "minimum": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows7,Windows8,Windows10<br></li><li><strong>Processor:</strong> Intel cpu i3<br></li><li><strong>Memory:</strong> 4 GB RAM<br></li><li><strong>Graphics:</strong> GTX 650<br></li><li><strong>Storage:</strong> 2 GB available space<br></li><li><strong>Sound Card:</strong> Realtek</li></ul>",
             "recommended": "<strong>Recommended:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows7,Windows8,Windows10<br></li><li><strong>Processor:</strong> Intel cpu i5<br></li><li><strong>Memory:</strong> 8 GB RAM<br></li><li><strong>Graphics:</strong> GTX 770<br></li><li><strong>Storage:</strong> 4 GB available space<br></li><li><strong>Sound Card:</strong> Realtek</li></ul>"
           },
-          "requirements_ru": { "minimum": "i386-33, 4 Мб", "recommended": "i486-40, 8 Мб" }
+          "requirements_ru": {
+            "minimum": "i386-33, 4 Мб",
+            "recommended": "i486-40, 8 Мб"
+          }
         },
         {
           "platform": {
