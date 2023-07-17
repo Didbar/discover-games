@@ -2,6 +2,7 @@ import { Flex, List, ListItem, SimpleGrid, Spinner, Text } from '@chakra-ui/reac
 import useGames from '../hooks/useGames'
 import GameCard from './GameCard'
 import GameCardSkeleton from './GameCardSkeleton'
+import GameCardContainer from './GameCardContainer'
 
 const GameGrid = () => {
   const { isLoading, error, games } = useGames()
@@ -19,9 +20,16 @@ const GameGrid = () => {
         }}
         spacing={10}
         p='.5rem'>
-        {isLoading && skeletons.map((skeleton) => <GameCardSkeleton key={skeleton} />)}
+        {isLoading &&
+          skeletons.map((skeleton) => (
+            <GameCardContainer>
+              <GameCardSkeleton key={skeleton} />
+            </GameCardContainer>
+          ))}
         {games.map((game) => (
-          <GameCard key={game.id} game={game} />
+          <GameCardContainer>
+            <GameCard key={game.id} game={game} />
+          </GameCardContainer>
         ))}
       </SimpleGrid>
     </>
