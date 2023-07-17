@@ -1,12 +1,12 @@
-import { Flex, List, ListItem, SimpleGrid, Spinner, Text } from '@chakra-ui/react'
+import { SimpleGrid, Text } from '@chakra-ui/react'
 import useGames from '../hooks/useGames'
 import GameCard from './GameCard'
 import GameCardSkeleton from './GameCardSkeleton'
 import GameCardContainer from './GameCardContainer'
+import { gamesSkeleton } from '../constants'
 
 const GameGrid = () => {
   const { isLoading, error, data: games } = useGames()
-  const skeletons = [1, 2, 3, 4, 5, 6]
 
   return (
     <>
@@ -21,7 +21,7 @@ const GameGrid = () => {
         spacing={3}
         p='.5rem'>
         {isLoading &&
-          skeletons.map((skeleton) => (
+          gamesSkeleton.map((skeleton) => (
             <GameCardContainer>
               <GameCardSkeleton key={skeleton} />
             </GameCardContainer>
