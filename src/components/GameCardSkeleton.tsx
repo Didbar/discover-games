@@ -1,4 +1,4 @@
-import { Card, CardBody, Flex, Skeleton, SkeletonText, Stack } from '@chakra-ui/react'
+import { Card, CardBody, Skeleton, SkeletonText, Stack } from '@chakra-ui/react'
 
 const GameCardSkeleton = () => {
   return (

@@ -6,11 +6,9 @@ interface Props {
 }
 const GameCardContainer = ({ children }: Props) => {
   return (
-    <Flex align='center' justify='center'>
-      <Box borderRadius='.5rem' overflow='hidden' width='100%'>
-        {children}
-      </Box>
-    </Flex>
+    <Box borderRadius='.5rem' overflow='hidden' width='100%'>
+      {children}
+    </Box>
   )
 }
 

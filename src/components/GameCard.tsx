@@ -22,7 +22,12 @@ const GameCard = ({ game }: Props) => {
           }}
         />
         <Stack mt='5' spacing='3'>
-          <Heading fontSize='lg' as='kbd'>
+          <Heading
+            fontSize={{
+              base: 'lg',
+              lg: 'md'
+            }}
+            as='kbd'>
             {game.name}
           </Heading>
           <HStack justifyContent='space-between'>
