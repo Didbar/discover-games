@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import apiClient from '../services/api-client'
 import { CanceledError } from 'axios'
-import localData from '../../data/localData.json'
 
 export interface Platform {
   id: number
@@ -28,19 +27,21 @@ const useGames = () => {
   const [isLoading, setLoading] = useState(false)
 
   useEffect(() => {
-    // const controller = new AbortController()
-    // setLoading(true)
-    // apiClient
-    //   .get<FetchGamesResponse>('/games', { signal: controller.signal })
-    //   .then((res) => setGames(res.data.results))
-    //   .catch((err) => {
-    //     if (err instanceof CanceledError) return
-    //     setError(err.message)
-    //   })
-    //   .finally(() => setLoading(false))
+    const controller = new AbortController()
+    setLoading(true)
+    apiClient
+      .get<FetchGamesResponse>('/games', { signal: controller.signal })
+      .then((res) => {
+        setGames(res.data.results)
+        setLoading(false)
+      })
+      .catch((err) => {
+        if (err instanceof CanceledError) return
+        setError(err.message)
+        setLoading(false)
+      })
 
-    // return () => controller.abort()
-    setGames(localData.results)
+    return () => controller.abort()
   }, [])
 
   return { games, error, isLoading }
