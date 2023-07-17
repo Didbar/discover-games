@@ -1,4 +1,13 @@
-import { Card, CardBody, HStack, Heading, Image, Stack } from '@chakra-ui/react'
+import {
+  Card,
+  CardBody,
+  HStack,
+  Heading,
+  Image,
+  Stack,
+  Tooltip,
+  VStack
+} from '@chakra-ui/react'
 import { Game } from '../hooks/useGames'
 import PlatformIconList from './PlatformIconList'
 import CriticScore from './CriticScore'
@@ -22,14 +31,17 @@ const GameCard = ({ game }: Props) => {
           }}
         />
         <Stack mt='5' spacing='3'>
-          <Heading
-            fontSize={{
-              base: 'lg',
-              lg: 'md'
-            }}
-            as='kbd'>
-            {game.name}
-          </Heading>
+          <Tooltip label={game.name} aria-label='A tooltip' p='0.5rem' borderRadius='8px'>
+            <Heading
+              noOfLines={1}
+              fontSize={{
+                base: 'lg',
+                lg: 'md'
+              }}
+              as='kbd'>
+              {game.name}
+            </Heading>
+          </Tooltip>
           <HStack justifyContent='space-between'>
             <PlatformIconList platforms={game.parent_platforms.map((p) => p.platform)} />
             <CriticScore score={game.metacritic} />
