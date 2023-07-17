@@ -3,6 +3,7 @@ import useGames, { Game } from '../hooks/useGames'
 import PlatformIconList from './PlatformIconList'
 import { easeIn } from 'framer-motion'
 import CriticScore from './CriticScore'
+import getCroppedImageUrl from '../services/image-url'
 
 interface Props {
   game: Game
@@ -13,7 +14,7 @@ const GameCard = ({ game }: Props) => {
     <Card borderRadius='.5rem' overflow='hidden' maxW='sm'>
       <CardBody>
         <Image
-          src={game.background_image}
+          src={getCroppedImageUrl(game.background_image)}
           borderRadius='1rem'
           transition='all ease-in 0.03s'
           _hover={{
