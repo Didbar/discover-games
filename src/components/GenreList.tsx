@@ -6,8 +6,9 @@ import { genresSkeleton } from '../constants'
 
 interface Props {
   onSelectGenre: (genre: Genre) => void
+  selectedGenre: Genre | null
 }
-const GenreList = ({ onSelectGenre }: Props) => {
+const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
   const { data: genres, isLoading, error } = useGenres()
 
   if (error) return <Text color='red.500'>genres not available</Text>
@@ -22,7 +23,11 @@ const GenreList = ({ onSelectGenre }: Props) => {
               borderRadius='50%'
               src={getCroppedImageUrl(genre.image_background)}
             />
-            <Button onClick={() => onSelectGenre(genre)} fontSize='md' variant='link'>
+            <Button
+              fontWeight={genre.id === selectedGenre?.id ? 'bold' : 'light'}
+              onClick={() => onSelectGenre(genre)}
+              fontSize='md'
+              variant='link'>
               {genre.name}
             </Button>
           </HStack>
