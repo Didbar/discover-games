@@ -17,7 +17,13 @@ const Emoji = ({ rating }: Props) => {
 
   return (
     <Tooltip label={emojiMap[rating].alt} aria-label='A tooltip'>
-      <Image {...emojiMap[rating]} boxSize='20px' />
+      <Image
+        {...emojiMap[rating]}
+        boxSize='25px'
+        _hover={{
+          transform: 'scale(1.5)'
+        }}
+      />
     </Tooltip>
   )
 }

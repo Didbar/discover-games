@@ -12,36 +12,35 @@ interface Props {
 const GameGrid = ({ gameQuery }: Props) => {
   const { isLoading, error, data: games } = useGames(gameQuery)
 
-  return (
-    <>
-      {error && <Text color='red.300'>{error}</Text>}
-      {games.length === 0 && !isLoading && (
-        <Text mt={5} fontSize='xl'>
-          No games found
-        </Text>
-      )}
+  if (error) return <Text color='red.300'>{error}</Text>
+  if (games.length === 0 && !isLoading)
+    return (
+      <Text mt={5} fontSize='xl'>
+        No games found{' '}
+      </Text>
+    )
 
-      <SimpleGrid
-        columns={{
-          sm: 1,
-          md: 2,
-          lg: 3,
-          xl: 4
-        }}
-        spacing={3}>
-        {isLoading &&
-          gamesSkeleton.map((skeleton) => (
-            <GameCardContainer key={skeleton}>
-              <GameCardSkeleton />
-            </GameCardContainer>
-          ))}
-        {games.map((game) => (
-          <GameCardContainer key={game.id}>
-            <GameCard game={game} />
+  return (
+    <SimpleGrid
+      columns={{
+        sm: 1,
+        md: 2,
+        lg: 3,
+        xl: 4
+      }}
+      spacing={3}>
+      {isLoading &&
+        gamesSkeleton.map((skeleton) => (
+          <GameCardContainer key={skeleton}>
+            <GameCardSkeleton />
           </GameCardContainer>
         ))}
-      </SimpleGrid>
-    </>
+      {games.map((game) => (
+        <GameCardContainer key={game.id}>
+          <GameCard game={game} />
+        </GameCardContainer>
+      ))}
+    </SimpleGrid>
   )
 }
 
