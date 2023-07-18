@@ -30,7 +30,11 @@ const GameCard = ({ game }: Props) => {
             transform: 'scale(1.05)'
           }}
         />
-        <Stack mt='5' spacing='3'>
+        <Stack mt='3' spacing='3'>
+          <HStack justifyContent='space-between' marginBottom={1}>
+            <PlatformIconList platforms={game.parent_platforms.map((p) => p.platform)} />
+            <CriticScore score={game.metacritic} />
+          </HStack>
           <Tooltip label={game.name} aria-label='A tooltip' p='0.5rem' borderRadius='8px'>
             <Heading
               noOfLines={1}
@@ -42,10 +46,6 @@ const GameCard = ({ game }: Props) => {
               {game.name}
             </Heading>
           </Tooltip>
-          <HStack justifyContent='space-between'>
-            <PlatformIconList platforms={game.parent_platforms.map((p) => p.platform)} />
-            <CriticScore score={game.metacritic} />
-          </HStack>
         </Stack>
       </CardBody>
     </Card>
