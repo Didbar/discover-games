@@ -9,7 +9,12 @@ interface Props {
 const NavBar = ({ onSearch }: Props) => {
   return (
     <HStack justifyContent='space-between' p='.5rem'>
-      <Image src={logo} boxSize='60px' />
+      <Image
+        src={logo}
+        boxSize='60px'
+        onClick={() => window.location.reload()}
+        _hover={{ cursor: 'pointer' }}
+      />
       <SearchInput onSearch={onSearch} />
       <ColorModeSwitch />
     </HStack>
