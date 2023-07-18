@@ -23,8 +23,7 @@ const GameGrid = ({ gameQuery }: Props) => {
           lg: 3,
           xl: 5
         }}
-        spacing={3}
-        mt='3'>
+        spacing={3}>
         {isLoading &&
           gamesSkeleton.map((skeleton) => (
             <GameCardContainer key={skeleton}>
