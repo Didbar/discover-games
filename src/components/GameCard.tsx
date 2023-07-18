@@ -1,17 +1,9 @@
-import {
-  Card,
-  CardBody,
-  HStack,
-  Heading,
-  Image,
-  Stack,
-  Tooltip,
-  VStack
-} from '@chakra-ui/react'
+import { Card, CardBody, HStack, Heading, Image, Stack, Tooltip } from '@chakra-ui/react'
 import { Game } from '../hooks/useGames'
 import PlatformIconList from './PlatformIconList'
 import CriticScore from './CriticScore'
 import getCroppedImageUrl from '../services/image-url'
+import Emoji from './Emoji'
 
 interface Props {
   game: Game
@@ -46,6 +38,7 @@ const GameCard = ({ game }: Props) => {
               {game.name}
             </Heading>
           </Tooltip>
+          <Emoji rating={game.rating_top} />
         </Stack>
       </CardBody>
     </Card>
