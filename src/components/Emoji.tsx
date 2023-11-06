@@ -1,7 +1,7 @@
-import bullsEye from '../assets/Emojis/bulls-eye.webp'
-import thumbsUp from '../assets/Emojis/thumbs-up.webp'
-import meh from '../assets/Emojis/meh.webp'
 import { Image, ImageProps, Tooltip } from '@chakra-ui/react'
+import bullsEye from '../assets/Emojis/bulls-eye.webp'
+import meh from '../assets/Emojis/meh.webp'
+import thumbsUp from '../assets/Emojis/thumbs-up.webp'
 
 interface Props {
   rating: number
@@ -9,8 +9,8 @@ interface Props {
 const Emoji = ({ rating }: Props) => {
   const emojiMap: { [key: number]: ImageProps } = {
     3: { src: meh, alt: 'meh' },
-    4: { src: bullsEye, alt: 'recommended' },
-    5: { src: thumbsUp, alt: 'exceptional' }
+    4: { src: thumbsUp, alt: 'recommended' },
+    5: { src: bullsEye, alt: 'exceptional' }
   }
 
   if (rating < 3) return null

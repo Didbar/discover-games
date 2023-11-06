@@ -1,14 +1,14 @@
+import { BsGlobe } from 'react-icons/bs'
 import {
-  FaWindows,
-  FaPlaystation,
-  FaXbox,
+  FaAndroid,
   FaApple,
   FaLinux,
-  FaAndroid
+  FaPlaystation,
+  FaWindows,
+  FaXbox
 } from 'react-icons/fa'
 import { MdPhoneIphone } from 'react-icons/md'
-import { SiNintendo } from 'react-icons/si'
-import { BsGlobe } from 'react-icons/bs'
+import { SiAtari, SiCommodore, SiD3Dotjs, SiNintendo, SiSega } from 'react-icons/si'
 
 import { HStack, Icon, useColorModeValue } from '@chakra-ui/react'
 import { IconType } from 'react-icons'
@@ -22,18 +22,23 @@ const PlatformIconList = ({ platforms }: Props) => {
     pc: FaWindows,
     playstation: FaPlaystation,
     xbox: FaXbox,
-    nintendo: SiNintendo,
+    ios: MdPhoneIphone,
+    android: FaAndroid,
     mac: FaApple,
     linux: FaLinux,
-    ios: MdPhoneIphone,
-    web: BsGlobe,
-    android: FaAndroid
+    nintendo: SiNintendo,
+    atari: SiAtari,
+    'commodore-amiga': SiCommodore,
+    sega: SiSega,
+    '3do': SiD3Dotjs,
+    'neo-geo': SiAtari,
+    web: BsGlobe
   }
   const color = useColorModeValue('gray.500', 'teal.400')
 
   return (
     <HStack marginY={1}>
-      {platforms.map((platform) => (
+      {platforms.map(platform => (
         <Icon
           key={platform.id}
           as={iconMap[platform.slug]}
