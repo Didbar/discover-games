@@ -10,10 +10,10 @@ interface Props {
   gameQuery: GameQuery
 }
 const GameGrid = ({ gameQuery }: Props) => {
-  const { isLoading, error, data: games } = useGames(gameQuery)
+  const { isLoading, error, data } = useGames(gameQuery)
 
-  if (error) return <Text color='red.300'>{error}</Text>
-  if (games.length === 0 && !isLoading)
+  if (error) return <Text color='red.300'>{error.message}</Text>
+  if (data?.results.length === 0 && !isLoading)
     return (
       <Text mt={5} fontSize='xl'>
         No games found
@@ -35,7 +35,7 @@ const GameGrid = ({ gameQuery }: Props) => {
             <GameCardSkeleton />
           </GameCardContainer>
         ))}
-      {games.map(game => (
+      {data?.results.map(game => (
         <GameCardContainer key={game.id}>
           <GameCard game={game} />
         </GameCardContainer>
