@@ -6,9 +6,9 @@ import GenreSkeleton from './GenreSkeleton'
 
 interface Props {
   onSelectGenre: (genre: Genre) => void
-  selectedGenre: Genre | null
+  selectedGenreId?: number
 }
-const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
+const GenreList = ({ onSelectGenre, selectedGenreId }: Props) => {
   const { data, isLoading, error } = useGenres()
 
   if (error) return <Text color='red.500'>genres not available</Text>
@@ -31,7 +31,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
               <Button
                 whiteSpace='normal'
                 textAlign='left'
-                fontWeight={genre.id === selectedGenre?.id ? 'bold' : 'light'}
+                fontWeight={genre.id === selectedGenreId ? 'bold' : 'light'}
                 onClick={() => onSelectGenre(genre)}
                 fontSize='md'
                 variant='link'>
