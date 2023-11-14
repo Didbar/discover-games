@@ -1,14 +1,13 @@
 import { Button, HStack, Heading, Image, List, ListItem, Text } from '@chakra-ui/react'
 import { genresSkeleton } from '../constants'
-import useGenres, { Genre } from '../hooks/useGenres'
+import useGenres from '../hooks/useGenres'
 import getCroppedImageUrl from '../services/image-url'
+import useGameQueryStore from '../store'
 import GenreSkeleton from './GenreSkeleton'
 
-interface Props {
-  onSelectGenre: (genre: Genre) => void
-  selectedGenreId?: number
-}
-const GenreList = ({ onSelectGenre, selectedGenreId }: Props) => {
+const GenreList = () => {
+  const genreId = useGameQueryStore(s => s.gameQuery.genreId)
+  const setSelectedGenreId = useGameQueryStore(s => s.setGenreId)
   const { data, isLoading, error } = useGenres()
 
   if (error) return <Text color='red.500'>genres not available</Text>
@@ -31,8 +30,8 @@ const GenreList = ({ onSelectGenre, selectedGenreId }: Props) => {
               <Button
                 whiteSpace='normal'
                 textAlign='left'
-                fontWeight={genre.id === selectedGenreId ? 'bold' : 'light'}
-                onClick={() => onSelectGenre(genre)}
+                fontWeight={genre.id === genreId ? 'bold' : 'light'}
+                onClick={() => setSelectedGenreId(genre.id)}
                 fontSize='md'
                 variant='link'>
                 {genre.name}
