@@ -11,8 +11,8 @@ const NavBar = () => {
         <Image
           src={logo}
           boxSize='70px'
-          _hover={{ cursor: 'pointer' }}
           objectFit='contain'
+          _hover={{ cursor: 'pointer' }}
         />
       </Link>
       <SearchInput />
