@@ -2,12 +2,14 @@ import {
   Box,
   Card,
   CardBody,
+  Link as ChakraLink,
   HStack,
   Heading,
   Image,
   Stack,
   Tooltip
 } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 import { Game } from '../hooks/useGames'
 import getCroppedImageUrl from '../services/image-url'
 import CriticScore from './CriticScore'
@@ -20,7 +22,7 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
   return (
-    <Card borderRadius='0.5rem' overflow='hidden'>
+    <Card overflow='hidden'>
       <Image
         src={getCroppedImageUrl(game.background_image)}
         transition='all ease-in 0.03s'
@@ -46,7 +48,9 @@ const GameCard = ({ game }: Props) => {
                 lg: 'md'
               }}
               as='kbd'>
-              {game.name}
+              <ChakraLink as={Link} to={`/games/${game.slug}`}>
+                {game.name}
+              </ChakraLink>
             </Heading>
           </Tooltip>
         </Stack>
