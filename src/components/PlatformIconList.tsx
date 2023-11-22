@@ -12,7 +12,7 @@ import { SiAtari, SiCommodore, SiD3Dotjs, SiNintendo, SiSega } from 'react-icons
 
 import { HStack, Icon, useColorModeValue } from '@chakra-ui/react'
 import { IconType } from 'react-icons'
-import { Platform } from '../hooks/usePlatforms'
+import Platform from '../entities/Platform'
 
 interface Props {
   platforms: Platform[]
